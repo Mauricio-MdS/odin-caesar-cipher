@@ -1,23 +1,21 @@
 def cipher_char(original_char, shifts)
-  if original_char >= 'a' && original_char <= 'z'
+  if original_char.match?(/[a-z]/)
     return cipher_lowercase_char(original_char, shifts)
-  elsif original_char >= 'A' && original_char <= 'Z'
+  elsif original_char.match?(/[A-Z]/)
     return cipher_uppercase_char(original_char, shifts)
   end
 
-  original_char
+  original_char # Chars that are not letters return unchanged
 end
 
 def cipher_lowercase_char(original_char, shifts)
-  ciphered_char = ' '
-  cyphered_bytes = original_char.getbyte(0) + shifts
-  if cyphered_bytes > 122
-    cyphered_bytes -= 26
-  elsif cyphered_bytes < 97
-    cyphered_bytes += 26
+  ciphered_bytes = original_char.ord + shifts
+  if ciphered_bytes > 'z'.ord # Wraps from z to a
+    ciphered_bytes -= 26
+  elsif ciphered_bytes < 'a'.ord # Wraps from a to z in case of negative shift
+    ciphered_bytes += 26
   end
-  ciphered_char.setbyte(0, cyphered_bytes)
-  ciphered_char
+  ciphered_bytes.chr
 end
 
 def cipher_uppercase_char(original_char, shifts)
