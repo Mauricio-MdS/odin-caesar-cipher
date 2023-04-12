@@ -15,5 +15,9 @@ describe 'caesar_chiper' do
     it 'returns a text that maintains case' do
       expect(cipher_text('hElLo', 2)).to eql('jGnNq')
     end
+
+    it 'wrap the shift from z to a' do
+      expect(cipher_text('world', 5)).to eql('btwqi')
+    end
   end
 end
