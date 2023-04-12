@@ -11,5 +11,9 @@ describe 'caesar_chiper' do
     it 'returns a text with special characterers unshifted, but letters shifted' do
       expect(cipher_text('hello, world!', 2)).to eql('jgnnq, yqtnf!')
     end
+
+    it 'returns a text that maintains case' do
+      expect(cipher_text('hElLo', 2)).to eql('jGnNq')
+    end
   end
 end
