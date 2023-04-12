@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 def cipher_char(original_char, shifts)
   if original_char.match?(/[a-z]/)
     return cipher_lowercase_char(original_char, shifts)
