@@ -23,5 +23,9 @@ describe 'caesar_chiper' do
     it 'shift with negative numbers' do
       expect(cipher_text('hello', -2)).to eql('fcjjm')
     end
+
+    it 'wrap the shift from a to z' do
+      expect(cipher_text('hello', -10)).to eql('xubbe')
+    end
   end
 end
