@@ -27,5 +27,9 @@ describe 'caesar_chiper' do
     it 'wrap the shift from a to z' do
       expect(cipher_text('hello', -10)).to eql('xubbe')
     end
+
+    it 'works with shifts that are greater than the alphabet size' do
+      expect(cipher_text('hello', 28)).to eql('jgnnq')
+    end
   end
 end
