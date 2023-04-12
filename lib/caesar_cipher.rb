@@ -45,4 +45,3 @@ def user_interface
   puts ciphered_text
 end
 
-user_interface
